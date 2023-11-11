@@ -20,6 +20,10 @@ export default(connexion_model) =>{
             type : DataTypes.INTEGER,
             allowNull : false
         },
+        category : {
+            type : DataTypes.STRING(30),
+            allowNull : false
+        },
         status : {
             type : DataTypes.INTEGER(1),
             allowNull : false,

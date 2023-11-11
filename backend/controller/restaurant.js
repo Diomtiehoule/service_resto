@@ -3,7 +3,8 @@ import generateString from "../utils/generatString.js";
 import bcrypt from "bcrypt"
 const chaine = "0123456789abcdefghijklmnopqrstuvwxyz";
 import Jwt  from "jsonwebtoken";
-import cookie from "cookie-parser";
+import cookie from "cookie-parser"
+import { generateToken, verifyToken } from "../utils/generatToken.js";
 import QRCode from "qrcode";
 
 
@@ -14,9 +15,11 @@ class RestoController {
     // enregistrer le restaurant
     static async create(req , res){
         try {
-        const restoExist = await Restaurant.findOne({where : {nom : req.body.bom , location : req.body.location , commune : req.body.commune}})
+        const restoExist = await Restaurant.findOne({where : {nom : req.body.nom , location : req.body.location , commune : req.body.commune}})
         const emailUsed = await Restaurant.findOne({where : { email : req.body.email}})
+        const numExist = await Restaurant.findOne({where : {contact : req.body.contact}})
         if(restoExist || emailUsed) return res.status(400).json({message : 'cet restaurant existe deja ou email deja utilisé !!'})
+        if (numExist) return res.status(400).json({message :"Ce contact est déja utilisé"})
         req.body.id = "RESTO" + generateString(chaine , 16)
         req.body.password = await bcrypt.hash(req.body.password , 10)
         await Restaurant.create(req.body)
@@ -46,6 +49,7 @@ class RestoController {
         })
         } catch (error) {
             res.status(400).json({message : "une erreur est survenu lors du traitement !!!"})
+            console.log(error)
         }
     }
 
@@ -54,11 +58,11 @@ class RestoController {
         try {
             const restaurant = await Restaurant.findOne({where : {email : req.body.email}})
             if(!restaurant) return res.status(400).json({message : "adresse mail ou mot de passe incorrect !!"})
-            const valid = await bcrypt.compare(req.body.password , utilisateur.password)
+            const valid = await bcrypt.compare(req.body.password , restaurant.password)
             if(!valid) return res.status(400).json({message : "adresse mail ou mot de passe incorrect !!"})
-            const token = Jwt.sign({id : utilisateur.id} , "RANDOM_TOKEN_SECRET" , {expiresIn : '24h'})
-            res.cookie("token" , Jwt.sign({id : utilisateur.id} , "RANDOM_TOKEN_SECRET" , {expiresIn : '24h'}))
-            res.status(200).json({ id : utilisateur.id , token , message : "connexion effectuée !"})
+            const token = Jwt.sign({id : restaurant.id} , "RANDOM_TOKEN_SECRET" , {expiresIn : '24h'})
+            res.cookie("token" , Jwt.sign({id : restaurant.id} , "RANDOM_TOKEN_SECRET" , {expiresIn : '24h'}))
+            res.status(200).json({ id : restaurant.id , token , message : "connexion effectuée !"})
         } catch (error) {
             res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
             console.log(error)
@@ -75,7 +79,7 @@ class RestoController {
             if(id !== userId ) return res.status(400).json({message : "vous n'avez pas cette autorisation !!"})
             let updateUser = (req.body)
             const emailUsed = await Restaurant.findOne({where : {email : req.body.email}})
-            const restoExist = await Restaurant.findOne({where : {nom : req.body.bom , location : req.body.location , commune : req.body.commune}})
+            const restoExist = await Restaurant.findOne({where : {nom : req.body.nom , location : req.body.location , commune : req.body.commune}})
             if(emailUsed){
                 return res.status(400).json({message : "cet email est déjà utilisé !"})
             }else if(restoExist){

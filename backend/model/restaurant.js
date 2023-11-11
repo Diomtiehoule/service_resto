@@ -9,15 +9,6 @@ export  default(connecion_model) =>{
             autoIncrement : false,
             unique : true
         },
-        email : {
-            type : DataTypes.STRING(50),
-            allowNull : false
-            // unique : true
-        },
-        password : {
-            type : DataTypes.STRING(100),
-            allowNull : false
-        },
         nom: {
             type : DataTypes.STRING(25),
             allowNull : false
@@ -31,19 +22,28 @@ export  default(connecion_model) =>{
             allowNull : false
         },
         contact : {
-            type : DataTypes.INTEGER,
+            type : DataTypes.STRING(10),
             allowNull : false
         },
         status : {
             type : DataTypes.INTEGER(1),
             allowNull : false,
             default : 1
+        },
+        email : {
+            type : DataTypes.STRING(50),
+            allowNull : false
+            // unique : true
+        },
+        password : {
+            type : DataTypes.STRING(100),
+            allowNull : false
         }
     },
     {
             timestamps : true,
-            createdAt : 'created',
-            updatedAt : 'updated'
+            createdAt : 'created_at',
+            updatedAt : 'updated_at'
      })
     
     return restaurant;
