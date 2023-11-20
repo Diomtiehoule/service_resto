@@ -38,6 +38,9 @@ export  default(connecion_model) =>{
         password : {
             type : DataTypes.STRING(100),
             allowNull : false
+        },
+        img_code_qr : {
+            type : DataTypes.STRING
         }
     },
     {

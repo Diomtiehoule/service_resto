@@ -35,11 +35,11 @@ class RestoController {
                 link : `https://investcop-11623.web.app/${newResto.id}`
             };
             const imag_QRcode = "stockage/QRcode"+generateString(chaine , 100)+".png"
-            // const img_code_qr = req.protocol+"://"+req.get('host')+"/"+imag_QRcode;
+            const img_code_qr = req.protocol+"://"+req.get('host')+"/"+imag_QRcode;
             QRCode.toFile(imag_QRcode , JSON.stringify(dataQRcode))
             .then(createdQRcode =>{
-                res.status(200).json({valide1 : true , message1 : "ce restaurant à été ajoute avec succes !" , newResto ,valid2 : true , message2 : "le code QR du restaurant a été generer avec succès..." , imag_QRcode})
-                console.log("le code qr est : "+imag_QRcode)
+                        Restaurant.update({img_code_qr : img_code_qr} , {where : {email : newResto.email}})
+                        res.status(200).json({valide1 : true , message1 : "ce restaurant à été ajoute avec succes !" , newResto ,valid2 : true , message2 : "le code QR du restaurant a été generer avec succès..." , imag_QRcode , img_code_qr})
             })
             
         })
@@ -92,6 +92,18 @@ class RestoController {
             res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
             console.log(error)
         }
+    }
+
+    static async all(req , res){
+        try {
+        const resto = await Restaurant.findAndCountAll()
+        if(!resto)return res.status(400).json({message : 'aucun resto trouve'})
+        res.status(200).json({message : "liste des restaurant" , resto})
+        } catch (error) {
+            console.log(err)
+            res.status(400).json({message :'une erreur est survenu...'})
+        }
+        
     }
 }
 

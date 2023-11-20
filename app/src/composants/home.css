@@ -1,0 +1,72 @@
+.home{
+    background-image: url('../media/home1.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+a{
+    color: black;
+    list-style: none;
+    text-decoration: none;
+}
+.home .title{
+    margin-left: 20px;
+    padding: 5px;
+    color: rgb(201, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    font-size: 2.2rem;
+}
+.home .title span{
+    color: white;
+}
+.home .title2{
+    margin-left: 20px;
+    padding: 5px;
+    color: rgb(201, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    font-size: 1.6rem;
+}
+.home .title2 span{
+    color: white;
+}
+
+.slogan_text{
+    font-size: 1.6rem;
+    width: 47.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+.home .button_users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 20px;
+    /* position: relative;
+    top: 60%; */
+}
+.button_users button{
+    padding: .3%;
+    width: 17%;
+    height: 6vh;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button_users button:hover{
+    background-color: rgb(201, 0, 0);
+    transition: 1s;
+    color: white;
+}
+.button_users button:hover a{
+    background-color: rgb(201, 0, 0);
+    transition: 1s;
+    color: white;
+}
+

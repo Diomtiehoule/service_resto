@@ -1,0 +1,25 @@
+nav{
+    background-color: rgb(201, 0, 0);
+    height: 10vh;
+    width: 100%;
+    box-shadow: 1px 3px 5px black;
+    padding-right: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+nav span{
+    color: white;
+}
+
+.navBar_utilisateur h2{
+    padding: 1.5%;
+    font-size: 1.6rem;
+}
+.research_zone input{
+    width: 140%;
+    background-color: white;
+    height: 5vh;
+    margin-top: 10%;
+    padding: 2%;
+    border-radius: 5px;
+}

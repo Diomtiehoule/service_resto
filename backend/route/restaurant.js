@@ -7,5 +7,6 @@ const route = Router()
 route.post('/register' , RestoController.create);
 route.post('/login' , RestoController.login);
 route.put('/:id' , onAuth ,RestoController.edit);
+route.get('/all' , RestoController.all)
 
 export default route
