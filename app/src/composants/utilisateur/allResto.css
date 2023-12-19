@@ -1,15 +1,75 @@
 .body_allResto{
     background-color: rgb(235, 235, 235);
     overflow: hidden;
-    /* background: linear-gradient(
-        to right , gray,red,yellow
-    );
-    background-size:  400% 600%;
-    animation: animate-background 10s infinite ease-in-out; */
 }
-.body_allresto{
-    display: flex;
+
+.allResto_part{
+  margin: 0 auto;
+  width: 95%;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
 }
+.zone_allResto{
+  display: flex;
+  gap: 20px;
+}
+.zone_allResto .all{
+}
+.zone_allResto .all h3{
+  border-bottom: 3px solid rgb(201, 0, 0);
+  color: rgb(201, 0, 0);
+}
+.zone_allResto p{
+  font-size: 1rem;
+}
+.zone_allResto .ls_zone{
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 2%;
+}
+.zone_allResto .ls_zone .zone{
+  transition: .3s ease;
+}
+.zone_allResto .ls_zone .zone:hover{
+  border-bottom: 3px solid rgb(201, 0, 0);
+  transition: .1s ease;
+}
+.ls_restos .restaurant{
+  width: 65%;
+  height: 25vh;
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px black;
+  display: flex;
+  margin: 0 auto;
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .body_information{
     width: 35%;
     height: 30vh;
@@ -17,19 +77,8 @@
     float: left;
     margin-left: 5%;
 }
-.body_allResto h1{
-    margin-left: 6%;
-    margin-top: 8%;
-    color: rgb(201, 0, 0);
-}
-.body_allResto .border{
-    width: 87.5%;
-    background-color: black;
-    height: 2px;
-    margin-left: 6%;
-    margin-bottom: 5%;
-}
-.restaurant{
+
+/* .restaurant{
     width: 90%;
     height: 20vh;
     background-color: white;
@@ -38,7 +87,7 @@
     margin: 0 auto;
     padding: 1%;
     margin-bottom: 2%;
-}
+} */
 .listResto{
     float: right;
     width: 50%;
@@ -60,7 +109,10 @@
     margin-right: 15px;
 }
 .restaurant .detail_resto{
-    margin-top: 5%;
+    margin-top: 2%;
+}
+.restaurant .detail_resto p{
+  margin-bottom: 5%;
 }
 .detail_resto:last-child{
     font-size: .9rem;
@@ -70,14 +122,10 @@
 .restaurant .detail_resto .nom_resto{
     color: rgb(201, 0, 0);
     font-weight: bolder;
-    font-size: 1.1rem;
-    padding-bottom: 2%;
+    /* font-size: 1.1rem; */
+    padding-bottom: 5%;
 }
-.voir p{
-    position: relative;
-    right: 130%;
-    top: 70%;
-}
+
 
 
 /* code animation du background  */
@@ -147,6 +195,8 @@
 body.active-modal {
     overflow-y: hidden;
   }
+
+  
   
   .btn-modal {
     padding: 10px 20px;
@@ -155,13 +205,7 @@ body.active-modal {
     font-size: 18px;
   }
   
-  /* .modal{
-    width: 100vw;
-    height: 30vh;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-  } */
+
   
   .overlay{
     background: rgba(49,49,49,0.8); 

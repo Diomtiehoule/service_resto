@@ -1,0 +1,70 @@
+.menu-body{
+    background-color: gainsboro;
+    padding: 2% 0 2% 0;
+}
+.menu-body .menu-zone{
+    background-color: white;
+    width: 95%;
+    margin: 0 auto;
+    padding: 2%;
+    border-radius: 3px;
+}
+.menu-zone .menu-space{
+    /* display: flex; */
+    gap: 10px;
+}
+.menu-space h1{
+    
+}
+.menu-space .categorie-menu-space{
+    display: flex;
+    padding-bottom: 1%;
+    gap: 10px;
+    font-size: 1.1rem;
+    margin: 4% 0 1.7% 1%;
+    border-bottom: 3px solid rgb(201,0,0);
+}
+.categorie-menu-space p{
+    font-size: 1.2rem;
+}
+.categorie-menu-space p:hover{
+    color: rgb(201,0,0);
+    cursor: pointer;
+}
+
+
+.ls-menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15px;
+}
+.ls-menu .menu-space{
+    width: 18%;
+    background-color: gainsboro;
+    border-radius: 5px;
+    margin-left: .9%;
+}
+.menu-space .img-menu{
+    width: 100%;
+    height: 25vh;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.img-menu img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.menu-space .info-menu{
+    padding: 2%;
+}
+.menu-space .action-menu{
+    display: flex;
+    justify-content: space-between;
+}
+.info-menu p{
+    margin-bottom: 2%;
+}

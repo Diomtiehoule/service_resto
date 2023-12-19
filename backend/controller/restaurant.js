@@ -32,9 +32,9 @@ class RestoController {
                 commune : newResto.commune,
                 location : newResto.location,
                 contact : newResto.contact,
-                link : `https://investcop-11623.web.app/${newResto.id}`
+                link : `http://localhost:5173/menu/${newResto.id}`
             };
-            const imag_QRcode = "stockage/QRcode"+generateString(chaine , 100)+".png"
+            const imag_QRcode = "stockage/QRcode"+generateString(chaine , 50)+".png"
             const img_code_qr = req.protocol+"://"+req.get('host')+"/"+imag_QRcode;
             QRCode.toFile(imag_QRcode , JSON.stringify(dataQRcode))
             .then(createdQRcode =>{
@@ -60,12 +60,42 @@ class RestoController {
             if(!restaurant) return res.status(400).json({message : "adresse mail ou mot de passe incorrect !!"})
             const valid = await bcrypt.compare(req.body.password , restaurant.password)
             if(!valid) return res.status(400).json({message : "adresse mail ou mot de passe incorrect !!"})
-            const token = Jwt.sign({id : restaurant.id} , "RANDOM_TOKEN_SECRET" , {expiresIn : '24h'})
-            res.cookie("token" , Jwt.sign({id : restaurant.id} , "RANDOM_TOKEN_SECRET" , {expiresIn : '24h'}))
+            const token = Jwt.sign({id : restaurant.id} , "LA_CARTE_TOKEN" , {expiresIn : '24h'})
+            res.cookie("token" , token )
             res.status(200).json({ id : restaurant.id , token , message : "connexion effectuée !"})
         } catch (error) {
             res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
             console.log(error)
+        }
+    }
+
+    static async getById( req , res){
+        try {
+            const {id} = req.params
+            console.log('le params....' , req.params)
+            // console.log('--------------------------' , id)
+            const restaurant = await Restaurant.findByPk(id)
+            // console.log(restaurant)
+            if(!restaurant) return res.status(400).json({message : "aucun restaurant trouvé !"})
+            res.status(200).json({message : 'le restaurant' , restaurant})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
+        }
+    }
+
+    // obtenir le restaurant 
+    static async restaurant(req, res){
+        try {
+            const { userId } =req.auth
+            console.log(userId)
+            const restaurant = await Restaurant.findByPk(userId)
+            console.log(restaurant)
+            if(!restaurant) return res.status(400).json({message : 'veuillez vous connecter'})
+            res.status(200).json({message : 'restaurant existe' , restaurant})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({ message : ' une erreur est survenu !!'})
         }
     }
 
@@ -74,15 +104,16 @@ class RestoController {
         try {
             const { userId } = req.auth
             const restaurant = await Restaurant.findByPk(userId)
-            if(!restaurant) return res.status(400).json({message : " veuillez vous connectez !!!"})
-            const id = req.params.id
-            if(id !== userId ) return res.status(400).json({message : "vous n'avez pas cette autorisation !!"})
+            if(!restaurant) return res.status(400).json({message : " veuillez vous connecter !!!"})
+            // const id = req.params.id
+            // if(id !== userId ) return res.status(400).json({message : "vous n'avez pas cette autorisation !!"})
             let updateUser = (req.body)
-            const emailUsed = await Restaurant.findOne({where : {email : req.body.email}})
+            // const emailUsed = await Restaurant.findOne({where : {email : req.body.email}})
             const restoExist = await Restaurant.findOne({where : {nom : req.body.nom , location : req.body.location , commune : req.body.commune}})
-            if(emailUsed){
-                return res.status(400).json({message : "cet email est déjà utilisé !"})
-            }else if(restoExist){
+            // if(emailUsed){
+            //     return res.status(400).json({message : "cet email est déjà utilisé !"})
+            // }else 
+            if(restoExist){
                 return res.status(400).json({message : "ce restaurant existe déjà !!"})
             }
             const valid = await Restaurant.update(updateUser , {where : {id : userId}})
@@ -92,6 +123,42 @@ class RestoController {
             res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
             console.log(error)
         }
+    }
+
+    static async delete (req , res){
+        try {
+            const { userId } = req.auth;
+        const restaurant = await Restaurant.findByPk(userId)
+        if(!restaurant) res.status(401).json({message : 'veuillez vous connecter !!!'})
+        let update = {
+            status : 0
+        }
+        const valid = await Restaurant.update(update , {where : { id : userId}})
+        if(!valid)res.status(400).json({messsage : 'echec de la suppression du compte'})
+        res.status(200).json({message : 'compte desactivé avec succès !!'})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
+        }
+        
+    }
+
+    static async active (req , res){
+        try {
+            const { userId } = req.auth;
+        const restaurant = await Restaurant.findByPk(userId)
+        if(!restaurant) res.status(401).json({message : 'veuillez vous connecter !!!'})
+        let update = {
+            status : 1
+        }
+        const valid = await Restaurant.update(update , {where : { id : userId}})
+        if(!valid)res.status(400).json({messsage : 'echec de la suppression du compte'})
+        res.status(200).json({message : 'compte desactivé avec succès !!'})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
+        }
+        
     }
 
     static async all(req , res){
@@ -105,6 +172,7 @@ class RestoController {
         }
         
     }
+
 }
 
 export default RestoController

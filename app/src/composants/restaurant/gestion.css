@@ -1,0 +1,353 @@
+.gestion_body{
+    /* background-color: rgb(241, 238, 238); */
+    background-color: gainsboro;
+    padding-bottom: 10%;
+}
+.principal_space{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    margin: 0 auto;
+    /* background-color: blue; */
+    padding: 1%;
+    margin-bottom: 10%;
+}
+.photo_space{
+    width: 30%;
+    padding: 2%;
+    background-color: gainsboro;
+}
+.photo_space .photo{
+    width: 90%;
+    margin: 0 auto;
+}
+.photo_space img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 40vh;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.principal_space .informations_principales h1{
+    margin-bottom: 20%;
+}
+.informations_principales p{
+    margin-bottom: 5%;
+}
+.informations_principales button{
+    padding: 2%;
+    margin-top: 30%;
+}
+.category_space{
+    padding: 5%;
+    margin: 0 auto;
+    margin-left: 10%;
+    width:80%;
+}
+.category_space .first_part{
+    display: flex;
+    margin-bottom: 3%;
+}
+.category_space .first_part h1{
+    font-size: 1.6rem;
+}
+.first_part .border{
+    border-bottom: 1px solid black;
+    width: 79%;
+    margin-bottom: 1.5%;
+    margin-left: 1%;
+}
+/* categories part */
+.container{
+    display: grid;
+    max-width: 900px;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 20px;
+    background-color: white;
+}
+.container::-webkit-scrollbar{
+    display: none;
+}
+.profil_wrapper{
+    text-align: center;
+    background-color: red;
+}
+.profil_imag_wrapper{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 4px solid rgb(201,0,0);
+    border-radius: 50%;
+    margin-bottom: 10px;
+
+}
+.profil_imag{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profil_imag_wrapper::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background: linear-gradient(rgb(201,0,0), black);
+    z-index: -1;
+    width: calc(100% + 13px);
+    height: calc(100% + 13px);
+    border-radius: 50%;
+}
+.add_categories button{
+    background-color: rgb(201,0,0);
+    padding: 0.7%;
+    position: relative;
+    left: 82%;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    margin-top: 1%;
+}
+
+/*menu part*/
+.menu_zone{
+    width: 80%;
+    margin: 0 auto;
+}
+.menu_zone .ls_menu{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.ls_menu h1{
+    font-size: 1.6rem;
+}
+.ls_menu .border{
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-left: 3px;
+}
+.menu_space{
+    display: grid;
+    max-width: 900px;
+    height: 50vh;
+    grid-auto-flow: column;
+    overflow-x: auto;
+    gap: 30px;
+    margin: 0 auto;
+}
+.container_menu{
+    display: flex;
+}
+.menu_space::-webkit-scrollbar{
+    display: none;
+}
+.container_menu .card .imag_card{
+    height: 20vh;
+}
+.container_menu .card .imag_card img{
+    width: 100%;
+    height: 100%;
+}
+
+.container_menu .card p{
+    margin-bottom: 2%;
+    margin-left: 2%;
+}
+.container_menu .card  p:last-child{
+    margin-top: 20%;
+    text-align: center;
+}
+.card{
+    width: 180px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 1px black;
+    height: 40vh;
+    position: relative;
+    top: 60px;
+    left: 0px;
+}
+.card:not(:first-child){
+    margin-left: 5px;
+}
+.card:hover{
+    transform: translateY(-50px);
+    transition: 1s;
+}
+.card:hover ~ .card{
+    left: 20px;
+}
+.menu_zone .see_more{
+    width: 70%;
+    margin: 0 auto;
+    background-color: blue;
+}
+.menu_zone .add_menu button{
+    padding: .7%;
+    border-radius: 5px;
+    background-color: rgb(201,0,0);
+    color: white;
+    border: none;
+    position: relative;
+    left: 81.8%;
+    margin-top: 1%;
+}
+
+
+.button--primary{
+    background-color: rgb(201,0,0);
+    border: white;
+}
+
+/* other design  */
+.gestion_body .gestion_part{
+    /* background-color: red; */
+    gap: 10px;
+    padding : 1%;
+    padding-top: 3%;
+    height: 120vh;
+    width: 100%;
+    display: flex;
+}
+.gestion_part .gestion_menu_part{
+    width: 75%;
+    background-color: white;
+    border-radius: 5px;
+}
+.gestion_menu_part .container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gestion_menu_part .menu_space{
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    height: 12vh;
+}
+.menu_space h3{
+    color: black;
+    font-size: 2.2rem;
+}
+.menu_space .btn_add_menu{
+    padding: 1%;
+}
+.menu_space .btn_add_menu button{
+    padding: 8px;
+}
+
+.gestion_menu_part .gestion_ls_menu{
+    padding: 2.5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    /* flex-direction: column; */
+}
+.gestion_menu_part .gestion_ls_menu .menu{
+    background-color: gainsboro;
+    width: 22.3%;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.gestion_menu_part .gestion_ls_menu .menu .img_menu{
+    background-color: yellowgreen;
+    height: 20vh;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.gestion_menu_part .gestion_ls_menu .menu .img_menu img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.gestion_menu_part .gestion_ls_menu .menu .menu_info{
+    padding: 3%;
+}
+.gestion_menu_part .gestion_ls_menu .menu .action_menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 5% 2% 5%;
+}
+
+
+
+
+
+
+
+
+
+
+.gestion_part .gestion_categorie_part{
+    width: 30%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.gestion_categorie_part{
+    /* padding: .5%; */
+}
+.gestion_categorie_part .btn_add_categorie{
+    background-color: white;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 3% 0% 3% 2%;
+    border-bottom: 2px solid black;
+    margin-bottom: 3%;
+}
+.btn_add_categorie button{
+    padding: 1.5%;
+}
+.gestion_ls_categorie{
+    background-color: white;
+    height: auto;
+    max-height: 70vh;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 1%;
+    padding-bottom: 5%;
+    position: relative;
+}
+.gestion_ls_categorie .element_categorie{
+    display: flex;
+    justify-content: space-between;
+    padding: 3%;
+    background-color: gainsboro;
+    margin: 1%;
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+}
+.element_categorie p{
+    font-size: 1.1rem;
+}
+.element_categorie .action_categorie{
+    display: flex;
+    gap: 10px;
+}
+
+.code_qr_space{
+    background-color: gainsboro;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+    border-radius: 5px;
+    padding: 2%;
+    display: flex;
+    cursor: pointer;
+}

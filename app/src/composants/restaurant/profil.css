@@ -1,0 +1,134 @@
+.profil_space{
+    background-color: gainsboro;
+    padding-top: 5%;
+    padding-bottom: 6%;
+}
+.profil_zone{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    gap: 30px;
+}
+.info_principal_profil{
+    background-color: white;
+    width: 20%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.info_principal_profil p{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.info_principal_profil .zone_image_profil{
+    /* background-color: yellow; */
+    padding : 2%;
+    height: 35vh;
+}
+.info_principal_profil .zone_image_profil .image_profil{
+    width: 150px;
+    height: 150px;
+    background-color: black;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.info_principal_profil .zone_image_profil .image_profil img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.info_principal_profil .zone_info{
+    background-color: gainsboro;
+    width: 100%;
+    height: auto;
+    padding-bottom: 10%;
+    border: 1px solid gray;
+}
+.info_principal_profil .zone_info .info{
+    border: 1px solid gray;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 3%;
+    margin-top: 2%;
+}
+.info_principal_profil .zone_logout{
+    height: 15vh;
+}
+.info_principal_profil .zone_logout button{
+    padding: 2%;
+}
+.info_principal_profil .zone_logout .button_logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.info_principal_profil .zone_logout .button_off{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: rgb(201,0,0);
+    border: 1px solid rgb(201,0,0);
+}
+
+.info_secondaire_profil{
+    background-color: white;
+    width: 80%;
+    border: 1px solid gray;
+}
+.info_secondaire_profil .account_info{
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    padding: 1%;
+    margin-bottom: 3%;
+}
+.info_secondaire_profil .ls_fields {
+    /* background-color: ; */
+    padding: 1%;
+}
+.info_secondaire_profil .ls_fields .field .info{
+    padding: 2%;
+    margin-top: 1%;
+    background-color: white;
+    width: 100%;
+    border: 1px solid gray;
+}
+
+
+.doubl_field{
+    display: flex;
+    /* background-color: green; */
+    justify-content: space-between;
+    padding: 1%;
+    width: 100%;
+    gap: 30px;
+}
+.doubl_field .field{
+    width: 50%;
+
+}
+
+.edit_info_secondaire{
+    padding: 2%;
+}
+.edit_info_secondaire button{
+    padding: .5%;
+    float: right;
+}
+
+/* modal */
+.doubl_field .field input{
+    padding: 2%;
+    width: 100%;
+}
+
+.profil_space .modal_footer button:last-child{
+    margin-left: 5%;
+}
+
+/* other code */

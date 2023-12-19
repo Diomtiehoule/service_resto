@@ -4,6 +4,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    object-fit: cover;
 }
 a{
     color: black;
@@ -18,7 +19,7 @@ a{
     font-size: 2.2rem;
 }
 .home .title span{
-    color: white;
+    color: black;
 }
 .home .title2{
     margin-left: 20px;
@@ -28,7 +29,7 @@ a{
     font-size: 1.6rem;
 }
 .home .title2 span{
-    color: white;
+    color: black;
 }
 
 .slogan_text{
@@ -68,5 +69,44 @@ a{
     background-color: rgb(201, 0, 0);
     transition: 1s;
     color: white;
+}
+
+/* responsive zone  */
+
+/* forma telephone  */
+@media screen and (max-width : 767px) {
+    .slogan_text{
+        font-size: 5vw;
+        width: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 50%;
+        margin-bottom: 5%;
+    }
+    .home .title{
+        margin-left: 5px;
+        padding-top: 5px;
+        font-size: 6vw;
+    }
+    .home .title2{
+        margin-left: 20px;
+        padding: 5px;
+        font-size: 5vw;
+    }
+    .button_users button{
+        padding: .5vw;
+        width: 25%;
+        height: 5vh;
+        font-size: 4vw;
+    }
+    
+}
+
+/* format tablette  */
+@media screen and ( min-width : 768px) and (max-width : 1024px){
+    
 }
 

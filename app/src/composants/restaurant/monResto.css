@@ -1,0 +1,97 @@
+.resto_body{
+    background-color: rgb(241, 238, 238);
+    padding: 3%;
+}
+
+.main_image_resto{
+    background-color: white;
+    box-shadow: 0px 0px 5px 2px black;
+}
+.resto_body .main_image_resto img{
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+}
+.main_image_resto .information_resto{
+    padding: 1%;
+}
+.main_image_resto .information_resto P{
+    margin-bottom: 1%;
+}
+
+
+/*information principale debut*/
+.information_principales{
+    display: 
+    flex;
+    gap: 30px;
+    padding: 5%;
+}
+.information_principales .category_other{
+    background-color: white;
+    width: 60%;
+    height: 40vh;
+    padding: 1%;
+    border-top: 2px dashed black ;
+    border-bottom : 2px dashed black
+}
+.category_other h3{
+    margin-bottom: 10%;
+}
+.category_other .border_category{
+    border: 1px solid black;
+    margin-bottom: 10%;
+}
+.category_other p{
+    margin-bottom: 5%;
+}
+
+:is(.listes , .ls_more){
+    background-color: white;
+    padding: 1%;
+    margin-bottom: 2%;
+    width: 100%;
+}
+.ls_more{
+    text-align: center;
+}
+.information_principales .menu_resto{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 05%;
+    padding: 1%;
+}
+.menu_resto .menu{
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    width: 30%;
+}
+.menu_resto .menu img{
+    width: 100%;
+    height: 20vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.menu .info_menu{
+    text-align: center;
+    padding: 2%;
+}
+.info_menu p:first-child{
+    font-weight: bold;
+    margin-bottom: 2%;
+}
+.menu .btn_view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: rgb(201, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 2%;
+    margin-top: 5%;
+    margin-bottom: 4%;
+    width: 45%;
+}

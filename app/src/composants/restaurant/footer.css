@@ -1,0 +1,58 @@
+.footer_zone{
+    background-color: black;
+    padding: 3% 5% 2% 5%;
+}
+.footer_zone .info_footer{
+    display: flex;
+    justify-content: space-between;
+}
+.info_footer h1{
+    margin-bottom: 5%;
+    color: white;
+}
+.info_footer ul li{
+    margin-bottom: 3%;
+    list-style: none;
+    color: gray;
+    font-weight: 600;
+}
+.info_footer .contact_us i{
+    color: white;
+    font-size: 1.2rem;
+}
+.contact_us .link{
+    display: flex;
+    gap: 20px;
+}
+
+.info_footer .subscribe p{
+    margin-bottom: 3%;
+    color: gray;
+    font-weight: 600;
+}
+.info_footer .subscribe input{
+    padding: 2%;
+    border-radius: 5px;
+    border: solid gainsboro;
+    width: 70%;
+    background-color: gainsboro;
+    margin-right: 2%;
+}
+.inputs_zone button{
+    padding: 2%;
+    border-radius: 5px;
+    border: solid rgb(201, 0, 0);
+    background-color: rgb(201, 0, 0);
+    color: white;
+}
+.footer_zone .border{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    background-color: gray;
+    border: 1px solid gray;
+}
+.copyright_part p{
+    color: gray;
+    font-weight: 700;
+}

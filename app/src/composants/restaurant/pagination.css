@@ -1,0 +1,25 @@
+
+.pagination_body nav ul{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.page-lien{
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.page-lien:hover{
+    color: rgb(201 , 0 , 0);
+}
+.pagination_body .page-link{
+    background-color: rgb(201 , 0 , 0);
+    padding: 10%;
+    border-radius: 10px;
+    color: white;
+    transition: .3s ease;
+}
+.pagination_body .prev:hover{
+    transform: translateX(-5px);
+}

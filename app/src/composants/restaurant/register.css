@@ -1,0 +1,104 @@
+.register_body{
+    background-image: url("../../media/resto.jpg");
+    height: 100vh;
+}
+.register_space{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    /* margin-top: 4%; */
+    padding-top: 7% ;
+    /* padding: 2%; */
+    height: auto;
+}
+
+.register_form{
+    width: 45%;
+}
+form{
+    background-color: rgb(201, 0, 0);
+    box-shadow: 0px 5px 10px 5px black;
+    padding : 5%;
+    margin : 0 auto
+}
+.title{
+    margin-left: 20px;
+    color: rgb(201, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    font-size: 2.2rem;
+}
+.title span{
+    color: white;
+}
+form h1{
+    text-align: center;
+    margin-bottom: 4%;
+    color: white;
+}
+form .inputs label{
+    margin-bottom: 5px;
+}
+form .inputs{
+    margin-bottom: 3%;
+    margin-left: 10%;
+}
+form .inputs input{
+    width: 90%;
+    height: 5vh;
+    padding : 2%;
+    border-radius : 2px;
+    border : none;
+    background-color: rgb(223, 223, 223);
+    color: black;
+}
+form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    width: 30%;
+    height: 5vh;
+    border: none;
+    font-size: 1rem;
+}
+
+
+.other_space{
+    background-color: rgb(201, 0, 0);
+    box-shadow: 5px 5px 10px 5px black;
+    width: 40%;
+    height: 70.3vh;
+    padding: 5%;
+}
+.other_space h1{
+    text-align: center;
+    margin-top: 25%;
+    margin-bottom: 5%;
+    color: white;
+}
+.other_space p{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.login_part p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 0 auto;
+    text-align: center;
+    margin-top: 2%;
+    color: white;
+}
+.login_part p a:hover{
+    color: blue;
+}
+.login_part p a{
+    margin-left: 3px;
+    color: white;
+}

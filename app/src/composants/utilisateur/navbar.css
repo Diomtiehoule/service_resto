@@ -1,13 +1,13 @@
-nav{
+.navBar_utilisateur nav{
     background-color: rgb(201, 0, 0);
     height: 10vh;
     width: 100%;
     box-shadow: 1px 3px 5px black;
-    padding-right: 7%;
+    padding-right: 2%;
     display: flex;
     justify-content: space-between;
 }
-nav span{
+.navBar_utilisateur nav span{
     color: white;
 }
 
@@ -16,7 +16,6 @@ nav span{
     font-size: 1.6rem;
 }
 .research_zone input{
-    width: 140%;
     background-color: white;
     height: 5vh;
     margin-top: 10%;

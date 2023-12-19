@@ -75,18 +75,33 @@ class menuController{
         }
     }
 
-    static async getOne(req,res){
+    static async getById( req , res){
         try {
-        const { userId } = req.auth
-        const id = req.params.id
-        const resto = await Restaurant.findByPk(userId)
-        if(!resto)return res.status(400).json({message : "vous n'avez pas cette autorisation !!!"})
-        const menu = await Menu.findOne({where : {restaurant_id : userId , id}})
-        if (!menu) return res.status(400).json({ message: "le menu demandé n'existe pas !!!"})
-        res.status(200).json({menu , status : true  , message : "le menu demandé..."})
+            const {id} = req.params
+            console.log('le params....' , req.params)
+            console.log('--------------------------' , id)
+            const menus = await Menu.findAndCountAll({where :{ restaurant_id : id}})
+            console.log('les menu' ,menus)
+            if(!menus) return res.status(400).json({message : "aucune menu trouvé !"})
+            res.status(200).json({message : 'liste des menus' , menus})
         } catch (error) {
-            res.status(400).json({message : " une erreur est survenu lors du traitement !!!"})
             console.log(error)
+            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
+        }
+    }
+
+    static async getByCategory( req , res){
+        try {
+            const {id} = req.params
+            console.log('le params....' , req.params)
+            console.log('--------------------------' , id)
+            const menus = await Menu.findAndCountAll({where :{ categorie_id : id}})
+            console.log('les menu' ,menus)
+            if(!menus) return res.status(400).json({message : "aucune menu trouvé !"})
+            res.status(200).json({message : 'liste des menus' , menus})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
         }
     }
 

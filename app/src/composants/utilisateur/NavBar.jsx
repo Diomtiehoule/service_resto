@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate , Link} from 'react-router-dom';
 import './navbar.css'
 
 function NavBar() {
+    const navigate = useNavigate()
     return (
         <div className='navBar_utilisateur'>
             <nav>
-                <h2 className=''><span>La</span> Carte</h2>
+                <h2 className=''><Link to={'/'}><span>La</span> Carte</Link></h2>
 
                 <div className="research_zone">
                     <input type="text" placeholder='Rechercher...'/>

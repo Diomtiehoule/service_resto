@@ -1,0 +1,101 @@
+.login_body{
+    background-image: url("../../media/resto.jpg");
+    height: 100vh;
+}
+.login_space{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    /* margin-top: 4%; */
+    padding-top: 7%;
+    height: auto;
+}
+
+.login_form{
+    width: 45%;
+}
+.login_form form{
+    background-color: rgb(201, 0, 0);
+    box-shadow: 0px 5px 10px 5px black;
+    padding : 15%;
+    margin : 0 auto
+}
+.title{
+    margin-left: 20px;
+    color: rgb(201, 0, 0);
+    text-shadow: 1px 1px 2px black;
+    font-size: 2.2rem;
+}
+.title span{
+    color: white;
+}
+.login_form form h1{
+    text-align: center;
+    margin-bottom: 7%;
+}
+.login_form form .inputs label{
+    margin-bottom: 5px;
+}
+.login_form form .inputs{
+    margin-bottom: 3%;
+    margin-left: 10%;
+}
+.login_form form .inputs input{
+    width: 90%;
+    height: 5vh;
+    padding : 2%;
+    border-radius : 2px;
+    border : none;
+    background-color: rgb(223, 223, 223);
+    color: black;
+}
+.login_form form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10%;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    width: 30%;
+    height: 5vh;
+    border: none;
+    font-size: 1rem;
+}
+
+
+.login_space .other_space{
+    background-color: rgb(201, 0, 0);
+    box-shadow: 5px 5px 10px 5px black;
+    width: 40%;
+    height: 61.7vh;
+    padding: 5%;
+}
+.other_space h1{
+    text-align: center;
+    margin-top: 25%;
+    margin-bottom: 5%;
+    color: white;
+}
+.other_space p{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.login_part p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : 0 auto;
+    text-align: center;
+    margin-top: 2%;
+}
+.login_part p a:hover{
+    color: blue;
+}
+.login_part p a{
+    margin-left: 3px;
+}

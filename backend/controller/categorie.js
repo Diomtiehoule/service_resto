@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 import dataBase from "../config/connexionSQL.js";
 import generateString from "../utils/generatString.js";
 const chaine = "0123456789abcdefghijklmnopqrstuvwxyz";
@@ -11,7 +12,6 @@ class categorieController{
         try {
             const { userId } = req.auth
             const resto = await Restaurant.findByPk(userId)
-            const id = req.params.id
             if(!resto)return res.status(400).json({message : "vousn'avez pas cette autorisation !!"})
             req.body.id = "CATG"+generateString(chaine , 16)
             req.body.restaurant_id = userId
@@ -28,14 +28,13 @@ class categorieController{
             res.status(200).json({message : "cette categorie à été ajoutée avec succès !!" , newCategorie})
         } catch (error) {
             res.status(400).json({message : "une erreur est suervenue lors du traitement..."})
-            console.log(error)
+            console.log(error.message)
         }
     }
 
     static async allMyCategorie(req , res){
         try {
             const { userId } = req.auth
-            const id = req.params.id
             const resto = await Restaurant.findByPk(userId)
             if(!resto)return res.status(400).json({message : "vous n'avez pas cette autorisation"})
             const myCategorie = await Categorie.findAndCountAll({where :  {restaurant_id : userId}})
@@ -44,6 +43,20 @@ class categorieController{
         } catch (error) {
             res.status(401).json({message : "une erreur est survenue lors du traitement..."})
             console.log(error)
+        }
+    }
+    static async getById( req , res){
+        try {
+            const {id} = req.params
+            console.log('le params....' , req.params)
+            console.log('--------------------------' , id)
+            const categorie = await Categorie.findAndCountAll({where :{ restaurant_id : id}})
+            console.log('la categorie' ,categorie)
+            if(!categorie) return res.status(400).json({message : "aucune categorie trouvé !"})
+            res.status(200).json({message : 'liste des categories' , categorie})
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
         }
     }
 
