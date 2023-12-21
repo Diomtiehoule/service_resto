@@ -23,8 +23,14 @@ function Resto() {
         stat.style.color = 'red'
         stat.style.fontWeight = 'bold'
     }
+    
 
     const [ allCategorie , setAllCategories] = useState([])
+    const stat_cat = document.querySelector('.categorie-resto')
+
+    
+
+
     useEffect(()=>{
         if(!cookie){
             fetch(url_api+`restaurant/${id}` , {
@@ -65,13 +71,22 @@ function Resto() {
                         console.log('-----------' , categories.categorie.rows)
                         setAllCategories(categories.categorie.rows)
                     }
+                    
                     console.log('succes fetch')
                 })
 
             })
+            
         }
        
     },[])
+
+    for(let i = 0 ; i < allCategorie.length ; i++){
+        if(allCategorie[i].status == 1  ){
+            console.log(allCategorie[i].nom)
+        }
+       
+    }
    
 
     return (
@@ -86,7 +101,7 @@ function Resto() {
                 <img src={photo} alt="" />
                 <div className="info-resto">
                     <p>{resto.commune}, abidjan </p>
-                    <p>{resto.location}</p>
+                    <p><i class="fa-solid fa-location-dot"></i> {resto.location}</p>
                 </div>
             </div>
 
@@ -111,7 +126,7 @@ function Resto() {
                     {allCategorie.map(categorie =>{
                         return(
                             <>
-                            <p>{categorie.nom}</p>
+                            <p className='categorie-resto'><i class="fa-solid fa-check"></i> {categorie.nom}</p>
                             </>
                         )
                     })}

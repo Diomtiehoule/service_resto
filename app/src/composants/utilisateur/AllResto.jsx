@@ -105,7 +105,8 @@ function AllResto() {
                         <div className="detail_resto">
                             <h2 className='nom_resto'>{res.nom}</h2>
                             <p> {res.commune} , Abidjan</p>
-                            <p>{res.location}</p>
+                            <p><i class="fa-solid fa-location-dot"></i>  {res.location}</p>
+                            <p><i class="fa-solid fa-phone"></i> : {res.contact}</p>
                         </div>
 
                         

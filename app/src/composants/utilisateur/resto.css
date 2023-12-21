@@ -54,3 +54,45 @@
 :is(.other-detail-resto .detail , .main-img-resto .info-resto) p{
     margin-bottom: 1%;
 } 
+
+
+
+
+
+@media screen and (max-width : 767px) {
+    .main-img-resto .nom-resto h1{
+        font-size: 5vw;
+    }
+    .resto-zone .main-img-resto{
+        width: 95%;
+    }
+    .resto-zone .main-img-resto img{
+        width: 100%;
+        height: 20vh;
+    }
+    .qrcode-menu{
+        width: 95%;
+    }
+    .qrcode-menu h2{
+        font-size: 5vw;
+    }
+    .other-detail-resto{
+        width: 95%;
+        margin: 0 auto;
+        background-color: white;
+        margin-top: 2%;
+    }
+    .other-detail-resto .detail{
+        background-color: white;
+        padding : 2%;
+        margin-top: 2%;
+    }
+    .other-detail-resto .detail h2{
+        margin-bottom: 4%;
+        font-size: 5vw;
+    }
+    :is(.other-detail-resto .detail , .main-img-resto .info-resto) p{
+        margin-bottom: 2%;
+        font-size: 4vw;
+    } 
+}
