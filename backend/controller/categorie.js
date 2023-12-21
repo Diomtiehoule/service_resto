@@ -56,7 +56,7 @@ class categorieController{
             res.status(200).json({message : 'liste des categories' , categorie})
         } catch (error) {
             console.log(error)
-            res.status(400).json({message : "une erreur est survenue lors du traitement !!!"})
+            res.status(400).json({message : "une erreur est survenue lors du traitement , veuillez patienter !!!"})
         }
     }
 
