@@ -99,3 +99,23 @@
 .login_part p a{
     margin-left: 3px;
 }
+
+
+
+
+
+
+
+.error_message{
+    background-color: white;
+    font-weight: 800;
+    text-align: center;
+    color: red;
+    width: 81%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}

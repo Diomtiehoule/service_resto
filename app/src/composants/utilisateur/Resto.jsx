@@ -5,7 +5,7 @@ import { get_cookie } from '../../cookie/cookie';
 import './resto.css'
 import NavBar from './NavBar';
 import Footer from '../restaurant/Footer';
-import photo from '../../media/home3.jpg'
+import photo from '../../media/resto1.jpeg'
 import CodeQR from '../restaurant/CodeQR';
 
 function Resto() {
@@ -101,7 +101,7 @@ function Resto() {
                 <img src={photo} alt="" />
                 <div className="info-resto">
                     <p>{resto.commune}, abidjan </p>
-                    <p><i class="fa-solid fa-location-dot"></i> {resto.location}</p>
+                    <p><i class="fa-solid fa-location-dot"></i> {resto.localisation}</p>
                 </div>
             </div>
 

@@ -22,3 +22,36 @@
     padding: 2%;
     border-radius: 5px;
 }
+
+.navBar_utilisateur nav{
+    padding: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: rgb(201, 0, 0);
+    display: flex;
+    justify-content: space-between;
+}
+.navBar_utilisateur nav h1{
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 2px black;
+}
+.navBar_utilisateur nav h1 span{
+    padding: 5px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    font-size: 2.2rem;
+}
+.navBar_utilisateur nav ul{
+    display: flex;
+    gap: 30px;
+}
+.navBar_utilisateur nav ul li{
+    font-size: 1.2rem;
+    text-decoration: none;
+    list-style: none;
+    margin-top: 2%;
+}
+.navBar_utilisateur nav ul li a:hover{
+    color :rgb(201, 0, 0);
+    transition: 1s;
+}

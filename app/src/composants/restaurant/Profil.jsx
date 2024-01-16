@@ -70,25 +70,26 @@ function Profil() {
     const [ nom , setNom ] = useState('')
     const [contact , setContact ] = useState('')
     const [commune , setCommune ] = useState('')
-    const [ location , setLocation ] = useState('')
+    const [ localisation , setLocalisationlocalisation ] = useState('')
 
      const handleEdit = (e) =>{
-        if(nom =='' || commune=='' || contact=='' || location==''){
+        if(nom =='' || commune=='' || contact=='' || localisation==''){
             console.log('veuillez remplir tout les champs !!')
         }
         fetch(url_api+"restaurant/edit" , {
             method : "PUT",
-            body : new URLSearchParams({nom , contact , commune , location}),
+            body : new URLSearchParams({nom , contact , commune , localisation}),
             headers : {Authorization : cookie}
         })
         .then(res => res.json())
         .then(success =>{
             console.log('..............' , success)
-            console.log(nom , contact , location , commune)
+            console.log(nom , contact , localisation , commune)
             setNom('')
             setCommune('')
             setContact('')
-            setLocation('')
+            setLocalisationlocalisation('')
+            window.location.reload()
         })
      }
 
@@ -104,14 +105,15 @@ function Profil() {
     let status = document.querySelector('.p_status')
     if(resto.status == 1){
         btn_off.style.backgroundColor = "rgb(201,0,0)"
-        btn_off.textContent = 'Désactiver le compte'
+        btn_off.textContent = 'Fermer le restaurant'
         status.textContent = 'Ouvert'
     }else if (resto.status == 0){
         btn_off.style.backgroundColor = "rgb(9, 216, 19)"
-        btn_off.textContent = 'Activer le compte'
+        btn_off.textContent = 'Ouvrir le restaurant'
         btn_off.style.border = '1px solid rgb(9, 216, 19)'
         status.textContent = 'Fermé'
     }
+    
     const countOff = (e) =>{
         if(resto.status == 1){
             fetch(url_api+"restaurant/delete" ,{
@@ -168,14 +170,14 @@ function Profil() {
                 </div>
                 <div className="zone_logout">
                     <button className="button_logout" onClick={handlLogOut}>Déconnexion</button><br />
-                    <button className="button_off" onClick={countOff}>Désactiver le compte</button>
+                    <button className="button_off" onClick={countOff}>Fermer le restaurant </button>
                 </div>
             </div>
 
 
             <div className="info_secondaire_profil">
                 <div className="account_info">
-                    <h1>Information du compte</h1>
+                    <h1>Information du restaurant</h1>
                 </div>
                 <div className="ls_fields">
 
@@ -226,7 +228,7 @@ function Profil() {
                 <div className="field">
                     <label htmlFor="">Localisation</label>
                     <div className="info">
-                        <p>{resto.location}</p>
+                        <p>{resto.localisation}</p>
                     </div>
                 </div>
                 </div>
@@ -297,7 +299,7 @@ function Profil() {
 
                             <div className="field">
                                 <label htmlFor="">Localisation</label><br />
-                                <input type="text" placeholder='Localisation' name='location' onChange={(e)=>{setLocation(e.target.value)}} value={location}/>
+                                <input type="text" placeholder='Localisation' name='localisation' onChange={(e)=>{setLocalisationlocalisation(e.target.value)}} value={localisation}/>
                             </div>
                             </div>
 

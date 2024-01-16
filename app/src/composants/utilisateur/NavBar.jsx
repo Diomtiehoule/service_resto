@@ -7,12 +7,16 @@ function NavBar() {
     return (
         <div className='navBar_utilisateur'>
             <nav>
+                <Link to={'/'}><h1>La<span>Carte</span></h1></Link>
+                
+            </nav>
+            {/* <nav>
                 <h2 className=''><Link to={'/'}><span>La</span> Carte</Link></h2>
 
                 <div className="research_zone">
                     <input type="text" placeholder='Rechercher...'/>
                 </div>
-            </nav>
+            </nav> */}
         </div>
     );
 }

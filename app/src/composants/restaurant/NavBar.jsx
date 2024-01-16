@@ -27,7 +27,7 @@ function NavBar() {
             <nav>
                 <Link to={'/'}><h1>La<span>Carte</span></h1></Link>
                 <ul>
-                    <li className='effect_restaurant'><Link to={'/restaurant'} className='link-resto'>Restaurant</Link></li>
+                    {/* <li className='effect_restaurant'><Link to={'/restaurant'} className='link-resto'>Restaurant</Link></li> */}
                     <li className='effect_gestion'><Link to={'/gestion'} className='link-gestion'>Gestion</Link></li>
                     <li className='effect_profil'><Link to={'/profil'} className='link-profil'>Profil</Link></li>
                 </ul>

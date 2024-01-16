@@ -20,36 +20,43 @@ function Pagination(props) {
             console.log(allMenu)
         })
     },[])
-    //  code pagination 
-    const [currentPage , setCurrentPage] = useState(1)
-    const [ recordPerPage , setRecordPerPage ] = useState(8)
 
-    const indexOfLastRecord = currentPage * recordPerPage;
-    const indexOfFirstRecord = indexOfLastRecord - recordPerPage
-    const currentRecords = allMenu.slice(indexOfFirstRecord,indexOfLastRecord)
-    console.log(currentRecords)
+    //  code pagination 
+    const [ currentPage , setCurrentPage] = useState(1)
+    const recordPerPage = 8;
+    const lastIndex = currentPage * recordPerPage
+    const firstIndex = lastIndex - recordPerPage
+    const records = allMenu.slice(firstIndex, lastIndex)
     const nPage = Math.ceil(allMenu.length / recordPerPage)
-    const pageNumbers = [... Array(nPage +1).keys()].slice(1);
+    const numbers = [...Array(nPage + 1).keys()].slice(1)
 
     const nextPage = () => {
-        if(currentPage !== nPage) setCurrentPage(currentPage + 1)
+        if(currentPage !== nPage) {
+            setCurrentPage(currentPage + 1)
+        }
     }
 
     const prevPage = () =>{
-        if(currentPage !== 1) setCurrentPage(currentPage - 1)
+        if(currentPage !== 1) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    const changePage = (id) => {
+        setCurrentPage(id)
     }
 console.log(currentPage)
     return (
-        <div className='pagination_body'>
+            <div className='pagination_body'>
             <nav>
                 <ul className="pagination">
                     <li className='page-item'>
                         <a className='page-link prev' onClick={prevPage} href="#">Precedent</a>
                     </li>
-                {pageNumbers.map(pgNumber => (
-                    <li key={pgNumber} className={`page-item ${currentPage == pgNumber ? 'actif' : ''}`}>
+                {numbers.map((n , i) => (
+                    <li key={i} className={`page-item ${currentPage == n ? 'actif' : ''}`}>
 
-                        <a href='#' onClick={() => setCurrentPage(pgNumber)} className='page-lien'>{pgNumber}</a>
+                        <a href='#' onClick={() => changePage(n)} className='page-lien'>{n}</a>
 
                     </li>
                 ))}

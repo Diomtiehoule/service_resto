@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import url_api from '../../api/api.jsx';
 import NavBar from './NavBar.jsx';
 import './allResto.css'
-import photo from '../../media/home1.webp'
+import photo from '../../media/resto1.jpeg'
 import axios from 'axios'
 import Footer from '../restaurant/Footer.jsx';
 
@@ -49,7 +49,7 @@ function AllResto() {
         <div className="allResto_part">
             <div className="zone_allResto">
                 <div className="all">
-                <h3>Tout</h3>
+                <h1>ABIDJAN</h1>
                 </div>
 
                 <div className="ls_zone">
@@ -63,33 +63,6 @@ function AllResto() {
                         )
                     })} */}
                     
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
-                    <div className="zone">
-                        <p>Cocody</p>
-                    </div>
                 </div>
             </div>
 
@@ -105,7 +78,7 @@ function AllResto() {
                         <div className="detail_resto">
                             <h2 className='nom_resto'>{res.nom}</h2>
                             <p> {res.commune} , Abidjan</p>
-                            <p><i class="fa-solid fa-location-dot"></i>  {res.location}</p>
+                            <p><i class="fa-solid fa-location-dot"></i>  {res.localisation}</p>
                             <p><i class="fa-solid fa-phone"></i> : {res.contact}</p>
                         </div>
 

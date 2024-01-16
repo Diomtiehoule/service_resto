@@ -12,6 +12,7 @@ function Login() {
    
     const [ email , setEmail ] = useState('')
     const [ password , setPassword ] = useState('')
+    const [errorSmg , setErrorSmg] = useState('')
    
 
 
@@ -25,18 +26,25 @@ function Login() {
         })
         .then(res => res.json())
         .then(success =>{
-            if(success){
-                console.log("connexion effectué avec success !" , success.token)
+            if(success.message !== "adresse mail ou mot de passe incorrect !!"){
+                    console.log("connexion effectué avec success !" , success.token)
                     console.log(success)
                     setEmail('')
                     setPassword('')
                     save_cookie(success.token)
                 setTimeout(()=>{
-                    navigate("/restaurant")
+                    navigate("/gestion")
                 },2000);
             }else{
+                let err = document.querySelector('.error_message')
+                err.style.display = 'block'
+                
                 console.log('------------echec')
+                console.log(success.message)
+                setErrorSmg(success.message)
+                console.log(errorSmg)
             }
+
             
         })
         .catch(error => {
@@ -54,6 +62,9 @@ function Login() {
                     <form action="" onSubmit={handlSubmit}>
                     {/* <h1 className='title'><span>La</span> Carte</h1> */}
                     <h1>Connexion</h1>
+                    <div className="error_message" style={{display : "none"}}>
+                        <p>{errorSmg ? errorSmg : ''}</p>
+                        </div>
                         <div className="inputs">
                             {/* <label htmlFor="">Adresse email</label><br /> */}
                             <input type="email" placeholder='Email' name='email' value={email} onChange={(e)=>{setEmail(e.target.value)}}/>

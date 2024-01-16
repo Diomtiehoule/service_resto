@@ -2,7 +2,7 @@ import React , {useState , useEffect }from 'react';
 import { useNavigate , useParams } from 'react-router-dom';
 import { get_cookie } from '../cookie/cookie';
 import url_api from '../api/api';
-import photo from '../media/home3.jpg'
+import photo from '../media/menu.jpg'
 import Pagination from './restaurant/Pagination';
 import './menu.css'
 import Footer from './restaurant/Footer';
@@ -24,10 +24,46 @@ function Menu() {
     const [ allCategories , setAllCategories ] = useState([])
     const [ allMenu , setAllMenu ] = useState([])
     const [ menu , setMenu ] = useState([])
+    const [ menuCat , setMenuCat] = useState([])
     console.log(menu)
+    console.log(menuCat)
     console.log(allMenu)
     console.log(allCategories)
 
+    
+
+
+    const showMenuCategorie = (n) =>{
+        console.log("id de la categorie" , n)
+        fetch(url_api+`menu/categorie/${n}` , {method : 'GET'})
+        .then(res => res.json())
+        .then(menus =>{
+            console.log('........----------', menus.menus.rows)
+            setMenuCat(menus.menus.rows)
+            console.log(menuCat)
+            
+            let zone = document.querySelector('.ls-menu')
+        //     zone.innerHTML=` {menuCat.map(menu => {
+        //     return (
+        //         <>
+        //          <div className="menu-space">
+        //     <div className="img-menu">
+        //         <img src=${photo} alt="" />
+        //     </div>
+        //     <div className="info-menu">
+        //         <p>${menu.nom}</p>
+        //         <p>${menu.category}</p>
+        //         <p>${menu.prix} CFA</p>
+        //     </div>
+        // </div>
+        //         </>
+        //     )
+        // })} `
+        })
+        
+
+        
+    }
 
     useEffect(()=>{
         fetch(url_api+`menu/${id}` ,{
@@ -66,10 +102,10 @@ function Menu() {
             <h1>MENU</h1>
             <div className="categorie-menu-space">
                 <p>TOUT</p>
-                {allCategories.map(categorie =>{
+                {allCategories.map((categorie) =>{
                     return (
                         <>
-                        <p onClick={()=>{window.location.replace(`/menu/${categorie.id}`)}}>{categorie.nom}</p>
+                        <p onClick={()=>{showMenuCategorie(categorie.id)}} >{categorie.nom}</p>
                         </>
                     )
                 })}
@@ -78,7 +114,7 @@ function Menu() {
         
         <div className="ls-menu">
             
-            {allMenu.map(menu => {
+            {menuCat.map(menu => {
                 return (
                     <>
                      <div className="menu-space">
@@ -87,32 +123,8 @@ function Menu() {
                 </div>
                 <div className="info-menu">
                     <p>{menu.nom}</p>
-                    <p>{menu.category}</p>
-                    <p>{menu.prix}</p>
-                    <div className="action-menu">
-                        <p><i class="fa-solid fa-pen-to-square"></i></p>
-                        <p><i class="fa-solid fa-trash"></i></p>
-                    </div>
-                </div>
-            </div>
-                    </>
-                )
-            })}
-            {menu.map(menu =>{
-                return (
-                    <>
-                    <div className="menu-space">
-                <div className="img-menu">
-                    <img src={photo} alt="" />
-                </div>
-                <div className="info-menu">
-                    <p>{menu.nom}</p>
-                    <p>{menu.category}</p>
-                    <p>{menu.prix}</p>
-                    <div className="action-menu">
-                        <p><i class="fa-solid fa-pen-to-square"></i></p>
-                        <p><i class="fa-solid fa-trash"></i></p>
-                    </div>
+                    <p>{menu.categories}</p>
+                    <p>{menu.prix} CFA</p>
                 </div>
             </div>
                     </>
@@ -120,6 +132,7 @@ function Menu() {
             })}
 
         </div>
+
         </div>
         
            

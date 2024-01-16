@@ -262,11 +262,18 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
+.text_menu{
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25%;
+    text-align: center;
+    font-size: 1.2rem;
+}
 .gestion_menu_part .gestion_ls_menu .menu .img_menu{
-    background-color: yellowgreen;
     height: 20vh;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px;
 }
 .gestion_menu_part .gestion_ls_menu .menu .img_menu img{
     width: 100%;

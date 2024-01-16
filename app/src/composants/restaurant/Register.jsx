@@ -9,7 +9,7 @@ function Register() {
     const navigate = useNavigate()
    
     const [ nom , setNom ] = useState('')
-    const [ location , setLocation ] = useState('')
+    const [ localisation , setLocalisation ] = useState('')
     const [commune , setCommune ] = useState('')
     const [ contact , setContact] = useState('')
     const [email , setEmail ] = useState('')
@@ -20,7 +20,7 @@ function Register() {
     const handlSubmit = async (e) =>{
         e.preventDefault()
         try {
-            if(nom == "" || location == '' || commune == '' || contact == '' || email =='' || password ==""){
+            if(nom == "" || localisation == '' || commune == '' || contact == '' || email =='' || password ==""){
                 console.log("veuillez remplir tout les champs svp !")
             }else if(password.length <6){
                 console.log("le mot de passe doit être supéreur à 6 !!")
@@ -30,7 +30,7 @@ function Register() {
                 console.log('essai')
                 fetch(url_api+'restaurant/register' ,{
                     method : "POST",
-                    body : new URLSearchParams({nom , location , commune , contact , email , password , status})
+                    body : new URLSearchParams({nom , localisation , commune , contact , email , password , status})
                 })
                 .then(res => res.json())
                 .then(success => {
@@ -39,7 +39,7 @@ function Register() {
                     setContact('')
                     setEmail('')
                     setNom('')
-                    setLocation('')
+                    setLocalisation('')
                     setPassword('')
                     setTimeout(()=>{
                         navigate("/login")
@@ -70,8 +70,8 @@ function Register() {
                             <input type="text" placeholder='Commune' name='commune' value ={commune}  onChange={(e)=>{setCommune(e.target.value)}}/>
                         </div>
                         <div className="inputs">
-                            {/* <label htmlFor="">Location</label><br /> */}
-                            <input type="text" placeholder='Location' name='location' value={location}  onChange={(e)=>{setLocation(e.target.value)}}/>
+                            {/* <label htmlFor="">Localisation</label><br /> */}
+                            <input type="text" placeholder='Localisation' name='localisation' value={localisation}  onChange={(e)=>{setLocalisation(e.target.value)}}/>
                         </div>
                         <div className="inputs">
                             {/* <label htmlFor="">Contact</label><br /> */}
